@@ -1,9 +1,9 @@
 Lists = new Meteor.Collection("Lists");
 
-// checks to see if the current user is the admin user
+// crude check to see if the current user is the admin user
 function adminUser(userId) {
   var adminUser = Meteor.users.findOne({username:"admin"});
-  return (userId && adminUser && userId === adminUser._id);
+  return (userId && adminUser && (userId === adminUser._id));
 }
 
 Lists.allow({
